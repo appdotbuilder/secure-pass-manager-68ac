@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Custom animations for password manager */
+  .password-strength-bar {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .vault-card-selected {
+    @apply ring-2 ring-blue-500 ring-opacity-50 shadow-lg;
+  }
+  
+  .item-card-hover {
+    @apply hover:shadow-md hover:scale-[1.02] transition-all duration-200;
+  }
+
+  /* Arabic text alignment improvements */
+  .text-arabic {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Password field styling */
+  .password-field {
+    @apply font-mono tracking-wider;
+  }
+
+  /* Copy button animation */
+  .copy-success {
+    @apply text-green-600 animate-pulse;
+  }
+
+  /* Loading spinner for buttons */
+  .btn-loading {
+    @apply opacity-70 cursor-not-allowed;
+  }
+
+  /* Security badge colors */
+  .security-high {
+    @apply bg-green-500 text-white;
+  }
+  
+  .security-medium {
+    @apply bg-yellow-500 text-white;
+  }
+  
+  .security-low {
+    @apply bg-red-500 text-white;
+  }
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, select, textarea {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+/* Focus styles for better accessibility */
+*:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-opacity-50;
+}
+
+/* Password strength indicator colors */
+.strength-very-weak { @apply bg-red-500; }
+.strength-weak { @apply bg-orange-500; }
+.strength-medium { @apply bg-yellow-500; }
+.strength-strong { @apply bg-blue-500; }
+.strength-very-strong { @apply bg-green-500; }
+
+/* Utility classes for icons and emojis */
+.icon-large { font-size: 2rem; }
+.icon-medium { font-size: 1.5rem; }
+.icon-small { font-size: 1rem; }
+
+/* RTL support for Arabic content */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .flex {
+  flex-direction: row-reverse;
+}
+
+/* Card hover effects */
+.card-interactive {
+  @apply cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Badge animations */
+.badge-pulse {
+  @apply animate-pulse;
+}
+
+/* Form validation styles */
+.field-error {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+.field-success {
+  @apply border-green-500 focus:ring-green-500;
+}
